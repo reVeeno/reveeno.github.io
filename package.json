@@ -5,13 +5,27 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./docs/assets/css/output.css --minify && cp src/index.html docs/index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.12",
     "tailwindcss": "^4.1.12"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reVeeno/reveeno.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reVeeno/reveeno.github.io/issues"
+  },
+  "homepage": "https://github.com/reVeeno/reveeno.github.io#readme"
 }
