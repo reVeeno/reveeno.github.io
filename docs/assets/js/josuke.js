@@ -1,30 +1,36 @@
 let clickCount = 0;
-  let resetTimeout; // store the timeout id
+let resetTimeout;
 
-  const dora = document.getElementById("dora");
-  const dorarara = document.getElementById("dorarara");
+const dora = document.getElementById("dora");       // 1 click sound
+const dorarara = document.getElementById("dorarara"); // 8 clicks special sound
 
-  document.getElementById("diamond").addEventListener("click", () => {
-    clickCount++;
+diamond.addEventListener("click", () => {
+  clickCount++;
 
-    // clear old timer
-    clearTimeout(resetTimeout);
+  clearTimeout(resetTimeout);
 
-    if (clickCount === 1) {
-      dora.play();
-    } else if (clickCount === 8) {
-      dorarara.play();
+  if (clickCount === 1) {
+    dora.currentTime = 0; // restart sound if spam clicked
+    dora.play();
+  } else if (clickCount === 8) {
+    dorarara.currentTime = 0;
+    dorarara.play();
 
-      // reset counter ONLY after audio ends
-      dorarara.onended = () => {
-        clickCount = 0;
-      };
+    // add special effect
+    diamond.classList.add("special-effect");
 
-      return; // prevent starting the 1s reset timer below
-    }
+    // remove effect when animation ends
+    setTimeout(() => {
+      diamond.classList.remove("special-effect");
+    }, 1200); // same as animation duration
 
-    // start/reset timer → if no click in 1s, reset count
-    resetTimeout = setTimeout(() => {
+    // reset after sound ends
+    dorarara.onended = () => {
       clickCount = 0;
-    }, 500);
-  });
+    };
+  }
+
+  resetTimeout = setTimeout(() => {
+    clickCount = 0;
+  }, 500);
+});
