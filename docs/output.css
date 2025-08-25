@@ -409,6 +409,9 @@
   .p-20 {
     padding: calc(var(--spacing) * 20);
   }
+  .px-0 {
+    padding-inline: calc(var(--spacing) * 0);
+  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -424,6 +427,9 @@
   .px-7 {
     padding-inline: calc(var(--spacing) * 7);
   }
+  .px-9 {
+    padding-inline: calc(var(--spacing) * 9);
+  }
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
   }
@@ -435,6 +441,9 @@
   }
   .px-30 {
     padding-inline: calc(var(--spacing) * 30);
+  }
+  .px-100 {
+    padding-inline: calc(var(--spacing) * 100);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
